@@ -6,8 +6,8 @@ import com.github.romankh3.image.comparison.ImageComparisonUtil;
 import com.github.romankh3.image.comparison.model.ImageComparisonResult;
 import com.github.romankh3.image.comparison.model.ImageComparisonState;
 import io.qameta.allure.Step;
-import ru.gb.test.locators.FormsPageLocators;
-import ru.gb.test.locators.LoginPageLocators;
+import ru.gb.test.locators.LocatorService;
+import ru.gb.test.locators.interfaces.FormsPageLocators;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -17,36 +17,36 @@ import static org.testng.Assert.assertEquals;
 
 public class FormsPage {
     private FormsPageLocators locator() {
-        return new FormsPageLocators();
+        return LocatorService.FORMS_PAGE_LOCATORS;
     }
 
     @Step("Кликаем по полю 'input field'")
     public FormsPage clickInputField() {
-        $(locator().InputField()).click();
+        $(locator().inputField()).click();
         return new FormsPage();
     }
 
     @Step("Вводим текст в поле 'input field'")
     public FormsPage sendKeysToInputField(String text) {
-        $(locator().InputField()).sendKeys(text);
+        $(locator().inputField()).sendKeys(text);
         return new FormsPage();
     }
 
     @Step("Проверяем текст в окне вывода")
     public FormsPage checkInputResultField(String text) {
-        $(locator().InputResultField()).shouldHave(Condition.text(text));
+        $(locator().inputResultField()).shouldHave(Condition.text(text));
         return new FormsPage();
     }
 
     @Step("Кликаем по кнопке 'актив' в форме")
     public FormsPage clickActiveButton() {
-        $(locator().ActiveButton()).click();
+        $(locator().activeButton()).click();
         return new FormsPage();
     }
 
     @Step("Проверяем текст оповещения кнопки")
     public FormsPage checkAlertText(String text) {
-        $(locator().ActiveButtonAlert()).shouldHave(Condition.text(text));
+        $(locator().activeButtonAlert()).shouldHave(Condition.text(text));
         return new FormsPage();
     }
 
@@ -55,7 +55,7 @@ public class FormsPage {
         // Загружаем ожидаемое изображения для сравнения.
         BufferedImage expectedImage = ImageComparisonUtil.readImageFromResources("src/main/resources/formsPage.png");
         // Делаем актуальный скриншот, используя элемент и игнорируя другие части экрана.
-        File actualScreenshot = $(locator().FormsScreen()).screenshot();
+        File actualScreenshot = $(locator().formsScreen()).screenshot();
         // Загружаем актуальный скриншот.
         BufferedImage actualImage = ImageComparisonUtil.readImageFromResources("screenshots/actual/" + actualScreenshot.getName());
 

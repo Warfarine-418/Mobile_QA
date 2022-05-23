@@ -9,8 +9,8 @@ import ru.gb.test.listeners.AllureListener;
 @Listeners(AllureListener.class)
 public class CheckScreenshotFormTest extends BaseTest {
     @Test
-    @Description("Проверяем получение оповещения с помощью скриншота")
-    public void CheckAlertScreenshot() {
+    @Description("Проверяем экран форм с помощью скриншота")
+    public void CheckFormsScreenshot() {
         openApp()
                 .clickFormsMenuButton()
                 .checkFormsScreenshot();
