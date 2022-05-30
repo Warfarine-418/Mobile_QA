@@ -7,7 +7,6 @@ import com.github.romankh3.image.comparison.model.ImageComparisonResult;
 import com.github.romankh3.image.comparison.model.ImageComparisonState;
 import io.qameta.allure.Step;
 import ru.gb.test.locators.FormsPageLocators;
-import ru.gb.test.locators.LoginPageLocators;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
