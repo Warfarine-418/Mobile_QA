@@ -1,0 +1,18 @@
+stages:
+  - build
+  - test
+
+
+build_job:
+  stage: build
+  tags:
+    - gb-runner
+  script:
+    - echo "Build is done"
+
+test_job:
+  stage: test
+  tags:
+    - gb-runner
+  script:
+    - echo "Test are going"
